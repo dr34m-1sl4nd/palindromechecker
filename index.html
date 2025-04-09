@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindromes!</title>
+    <link rel="stylesheet" src="style.css">
 </head>
 
 <body>
-    <form id="checker">
+    <form>
         <label for="checker">IS THIS A PALINDROME?</label>
         <input type="text" id="checker" placeholder="Type here">
         <button type="button" onclick="checkForPalindrome()">Check</button>
@@ -17,9 +18,17 @@
     <script>
         function checkForPalindrome() {
             const checker = document.getElementById("checker").value;
+            const sanitized = checker.toLowerCase().replace(/[^a-z0-9]/g, "");
             const reversed = checker.split("").reverse().join("");
             const result = document.getElementById("result");
-            result.textContent = 'Your word: ${reversed}';
+
+            if (sanitized === reversed) {
+                result.textContent = `TRUE!!!`;
+                result.style.color = "#1cff59"
+            } else {
+                result.textContent = `FALSE!!!`;
+                result.style.color = "#ff1c1c";
+            }
         }
     </script>
 </body>
