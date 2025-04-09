@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromes!</title>
+</head>
+
+<body>
+    <form id="checker">
+        <label for="checker">IS THIS A PALINDROME?</label>
+        <input type="text" id="checker" placeholder="Type here">
+        <button type="button" onclick="checkForPalindrome()">Check</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        function checkForPalindrome() {
+            const checker = document.getElementById("checker").value;
+            const reversed = checker.split("").reverse().join("");
+            const result = document.getElementById("result");
+            result.textContent = 'Your word: ${reversed}';
+        }
+    </script>
+</body>
+
+</html>
